@@ -1,0 +1,38 @@
+
+services:
+  app:
+    build: .
+    ports:
+      - "8090:8080"
+    networks:
+      - mm-network
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: erfan
+      POSTGRES_PASSWORD: 1998
+      POSTGRES_DB: mockmarket
+    ports:
+      - 5433:5432
+    networks:
+      - mm-network
+    volumes:
+      - postgres-mock-market-data:/var/lib/postgresql/data
+
+  frontend:
+    build:
+      context: ./fr-mock-market  # Context pointing to the Angular directory
+      dockerfile: Dockerfile  # Name of the Dockerfile for Angular
+    ports:
+      - "4200:80"  # Expose the frontend Angular app
+    networks:
+      - mm-network
+
+networks:
+  mm-network:
+    driver: bridge
+
+volumes:
+  postgres-mock-market-data:
+
