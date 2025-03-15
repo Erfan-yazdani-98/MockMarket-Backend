@@ -55,8 +55,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 //        configuration.setAllowedOrigins(Arrays.asList("*")); // Allow all origins
-        configuration.setAllowedOrigins(Arrays.asList("http://207.154.219.47:4200","http://commerce.erfanyazdani-cv.com","http://localhost:4200"));
-//        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "http://frontend:80","http://mock-market-frontend-1:80", "http://207.154.219.47:4200"));
+        configuration.setAllowedOrigins(Arrays.asList("http://xxx.xxx.xxx.xx:4200","http://commerce.erfanyazdani-cv.com","http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true); // Allow credentials
